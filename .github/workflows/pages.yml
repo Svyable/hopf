@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check docs/app.mjs && node --check docs/atlas.mjs && node --check docs/symmetry.mjs && node --check docs/experience.mjs
+      - run: node --check docs/app.mjs && node --check docs/atlas.mjs && node --check docs/symmetry.mjs && node --check docs/experience.mjs && node --check docs/studio.mjs
       - run: node --test tests/*.test.mjs
       - run: npm install --no-save --no-package-lock playwright@1.56.1
       - run: npx playwright install --with-deps chromium
