@@ -13,3 +13,7 @@ export const phaseError=(theta,n)=>{const p=discretePhase(theta,n);return p===nu
 export function gauge(theta,travel,winding){const a=Math.sin(theta/2)**2;return {connection:a+winding,sectionPhase:winding*travel,compensation:-(a+winding)*travel,total:-a*travel};}
 export const deg=x=>x*180/Math.PI;
 export const rad=x=>x*Math.PI/180;
+
+// Normalized cap fluxes for F=(sin theta / 2)dtheta wedge dphi.
+export const capFlux=theta=>[(1-Math.cos(theta))/2,(1+Math.cos(theta))/2];
+export function quadratureFlux(theta,bins){if(!Number.isInteger(bins)||bins<1||bins>65536)throw new RangeError('Invalid subdivision count');function integrate(a,b){const d=(b-a)/bins;let sum=0;for(let i=0;i<bins;i++)sum+=Math.sin(a+(i+.5)*d)*d/2;return sum}return integrate(0,theta)+integrate(theta,Math.PI)}

@@ -17,3 +17,6 @@ Stereographic projection excludes one point; studio colatitudes are restricted t
 - [Berry, Quantal Phase Factors Accompanying Adiabatic Changes (1984)](https://doi.org/10.1098/rspa.1984.0023)
 - [Samuel and Bhandari, General Setting for Berry's Phase (1988)](https://doi.org/10.1103/PhysRevLett.60.2339)
 - [Nielsen, TUFT](https://philpapers.org/rec/NIETTU)
+
+## Chern flux and the patch boundary
+The north and south regular local connection potentials are A_N=(1−cosθ)dφ/2 and A_S=−(1+cosθ)dφ/2. Their difference is dφ on the overlap. Both yield F=(sinθ/2)dθ∧dφ. A latitude boundary at θ divides normalized flux into (1−cosθ)/2 and (1+cosθ)/2, whose sum is exactly one. The interface integrates the two cap integrals with independent midpoint quadrature and displays the error relative to the analytic Chern number. This is an illustration of the obstruction to a single global gauge potential, not a derivation of a physical electric charge.
