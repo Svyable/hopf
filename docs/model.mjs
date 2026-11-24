@@ -2,7 +2,7 @@
 export const crossing=1/Math.sqrt(12);
 export const curvature=t=>(80-8*t*t)*t**(2/9);
 export const gap=t=>Math.min(20,8+1/t**2)*t**(2/9);
-export const index=k=>(k+1)*(k+2)*(k+3)*(k+4)/24;
+export const index=k=>k>=-4&&k<=-1?0:(k+1)*(k+2)*(k+3)*(k+4)/24;
 export const holonomy=theta=>Math.PI*(1-Math.cos(theta));
 export function choose4(n){return n<4?0:n*(n-1)*(n-2)*(n-3)/24}
 export function modes(max,t,normalize=true){
