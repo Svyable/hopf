@@ -11,7 +11,7 @@ For m=2 and r=1 this is q(q−1). There are q²+1 lines in P¹(F_{q²}), of whic
 ## Zeta function
 Define Z(B_m,T)=exp(Σ_{r≥1}|B_m(F_{q^r})| T^r/r). Substituting the finite power sum yields
 Z(B_m,T)=∏_{j=0}^{m−1}(1−(−1)^j q^{2m−2−j} T)^{-1}.
-For m=2, Z=1/[(1−q²T)(1+qT)]. These reciprocal poles are not classical Riemann zeta zeros. The elementary identity determines point counts; it is not a proof of the Weil conjectures or a claim of a new theorem. The variety has complex dimension 2m−2 after base change (algebraic dimension, not a physical dimension). The UI uses BigInt for exact powers and checks the count against the trace sum.
+For m=2, Z=1/[(1−q²T)(1+qT)]. These reciprocal poles are not classical Riemann zeta zeros. The elementary identity determines point counts; it is not a proof of the Weil conjectures or a claim of a new theorem. The variety has algebraic dimension 2m−2 after base change to the algebraic closure (not a physical dimension). The UI uses BigInt for exact powers and checks the count against the trace sum.
 
 ## Further reading
 - [Levent Alpöge — research and publications](https://alpo.ge/)
