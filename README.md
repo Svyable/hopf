@@ -13,6 +13,9 @@ An interactive research playground for the complex Hopf fibration and possible g
 - [Fiber studio](https://svyable.github.io/hopf/studio.html)
 - [Research notebook 004](docs/research-004.md)
 
+- [Arithmetic observatory](https://svyable.github.io/hopf/arithmetic.html)
+- [Research notebook 005](docs/research-005.md)
+
 ## Run locally
 ```sh
 python3 -m http.server 8000 --directory docs
