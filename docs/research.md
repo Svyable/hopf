@@ -35,3 +35,6 @@ For z=(cos(θ/2), e^(iφ)sin(θ/2)), A=−iz†dz gives A=sin²(θ/2)dφ, so ∮
 - [Peralta-Salas and Slobodeanu — Contact structures and Beltrami fields on the torus and the sphere](https://arxiv.org/abs/2004.10185)
 
 These results are independently reconstructed applications of known mathematics; novelty in the literature has not been established.
+
+## Follow-up
+[Research 002 — Projective states and the homogeneous index obstruction](research-002.md).

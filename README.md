@@ -3,7 +3,9 @@
 An interactive research playground for the complex Hopf fibration and possible geometric foundations of physics, inspired by Jenny Lorraine Nielsen's [TUFT](https://philpapers.org/rec/NIETTU).
 
 - [Observatory (once Pages is enabled)](https://svyable.github.io/hopf/)
-- [Research notebook](docs/research.md)
+- [Projective atlas (research 002)](https://svyable.github.io/hopf/atlas.html)
+- [Research notebook 001](docs/research.md)
+- [Research notebook 002](docs/research-002.md)
 - [GitHub Pages settings](https://github.com/Svyable/hopf/settings/pages)
 
 ## Run locally
