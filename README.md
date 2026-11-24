@@ -30,3 +30,6 @@ Distinguish established mathematics, derived model results, and hypotheses. Do n
 
 ## Visualization controls
 The shared observatory experience includes laboratory navigation, active section highlighting, Hopf azimuth/latitude/categorical palettes, zoom, PNG capture, filtered spectral modes, keyboard-accessible mode selection, and SVG figure export. All scientific formulas remain in the model modules.
+
+## Geometry bridge
+The arithmetic page now includes a linked continuous-sphere / finite-quadric explorer, coordinate slices, an ordered norm-one orbit microscope, exact invariant checks, and shareable/exportable experiments. [Proof notebook 006](docs/research-006.md).
