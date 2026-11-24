@@ -1,0 +1,30 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import {readFile} from 'node:fs/promises';
+import {resolve,extname,sep} from 'node:path';
+const root=resolve('docs');
+const mime={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.svg':'image/svg+xml'};
+const server=createServer(async(req,res)=>{try{const pathname=new URL(req.url,'http://localhost').pathname;const file=resolve(root,'.'+(pathname==='/'?'/index.html':pathname));if(!file.startsWith(root+sep)){res.writeHead(403).end();return}const content=await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'}).end(content)}catch{res.writeHead(404).end()}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch({headless:true});
+const errors=[];
+const base='http://127.0.0.1:'+server.address().port;
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base);await page.waitForFunction(()=>document.querySelector('#modeSelect').options.length>0);
+ assert.equal(await page.locator('.labnav [aria-current=page]').count(),1);
+ await page.selectOption('#palette','latitude');assert.match(await page.locator('#paletteLegend').innerText(),/colatitude/);
+ await page.locator('#zoom').evaluate(e=>{e.value='1.5';e.dispatchEvent(new Event('input'))});assert.equal(await page.locator('#zoomval').innerText(),'1.50×');
+ await page.click('#expandHopf');assert.equal(await page.locator('#expandHopf').getAttribute('aria-pressed'),'true');await page.keyboard.press('Escape');assert.equal(await page.locator('#expandHopf').getAttribute('aria-pressed'),'false');
+ await page.selectOption('#sector','negative');assert.ok(await page.locator('#modes tr').count()>0);assert.ok((await page.locator('#modes tr td:nth-child(2)').allTextContents()).every(v=>Number(v)<0));
+ await page.locator('#degree').evaluate(e=>{e.value='1';e.dispatchEvent(new Event('input'))});await page.selectOption('#sector','zero');assert.equal(await page.locator('#modeSelect').isDisabled(),true);
+ await page.selectOption('#sector','all');assert.equal(await page.locator('#modeSelect').isDisabled(),false);await page.selectOption('#modeSelect',{index:1});assert.equal(await page.locator('#spectral .mode-active').count(),1);
+ const [png]=await Promise.all([page.waitForEvent('download'),page.click('#saveHopf')]);assert.equal(png.suggestedFilename(),'hopf-fibration.png');
+ const [svg]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'SVG ↓ Spectrum'}).click()]);assert.equal(svg.suggestedFilename(),'hopf-spectral.svg');
+ await page.goto(base+'/atlas.html');await page.waitForFunction(()=>document.querySelector('#fidelity').textContent.length>0);const fidelity=await page.locator('#fidelity').innerText();await page.locator('#global').evaluate(e=>{e.value='123';e.dispatchEvent(new Event('input'))});assert.equal(await page.locator('#fidelity').innerText(),fidelity);
+ await page.goto(base+'/symmetry.html');await page.waitForFunction(()=>document.querySelector('#verdict').textContent.includes('PASS'));await page.click('#removeQ');assert.match(await page.locator('#verdict').innerText(),/FAIL/);
+ await page.setViewportSize({width:390,height:844});for(const p of ['/','/atlas.html','/symmetry.html']){await page.goto(base+p);await page.waitForFunction(()=>document.querySelectorAll('.panel-tools').length>0);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'horizontal page overflow '+p)}
+ assert.deepEqual(errors,[]);console.log('Browser smoke passed: desktop and mobile, navigation, zoom, palettes, filters, downloads, ray invariance, anomaly engine.');
+}finally{await browser.close();server.close()}

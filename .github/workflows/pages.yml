@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,6 +18,9 @@ jobs:
           node-version: '22'
       - run: node --check docs/app.mjs && node --check docs/atlas.mjs && node --check docs/symmetry.mjs && node --check docs/experience.mjs
       - run: node --test tests/*.test.mjs
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-smoke.mjs
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: verify
