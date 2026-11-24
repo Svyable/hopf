@@ -5,7 +5,7 @@ export const hopf=([a,b,c,d])=>[2*(a*c+b*d),2*(a*d-b*c),a*a+b*b-c*c-d*d];
 export const inner=([a,b,c,d],[e,f,g,h])=>[a*e+b*f+c*g+d*h,a*f-b*e+c*h-d*g];
 export const stereo=([a,b,c,d])=>{let v=1-d;return v>1e-12?[a/v,b/v,c/v]:null};
 export const area=theta=>TAU*(1-Math.cos(theta));
-export const phaseAt=(theta,travel)=>-Math.sin(theta/2)**2*travel;
+export const phaseAt=(theta,travel)=>-(Math.sin(theta/2)**2)*travel;
 export const lift=(theta,phi,travel)=>ray(theta,phi+travel,phaseAt(theta,travel));
 export const wrap=x=>((x+Math.PI)%TAU+TAU)%TAU-Math.PI;
 export function discretePhase(theta,n){if(!Number.isInteger(n)||n<3||n>65536)throw new RangeError('3–65536 vertices required');const a=Math.cos(theta/2)**2,b=Math.sin(theta/2)**2,d=TAU/n;const re=a+b*Math.cos(d),im=b*Math.sin(d);if(Math.hypot(re,im)<1e-12)return null;return wrap(-n*Math.atan2(im,re))}
