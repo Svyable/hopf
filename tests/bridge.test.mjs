@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {primes,field,mod} from '../docs/arithmetic-model.mjs';
+import {quadric,orderedFiber,finiteHopf,torusGenerator,project3} from '../docs/bridge-model.mjs';
+test('finite Hopf quadric independently enumerated',()=>{for(const p of primes){const d=field(p).d,q=quadric(p),seen=new Set(q.map(v=>v.point.join(',')));assert.equal(seen.size,p*(p-1));assert.equal(q.length,seen.size);const brute=new Set();for(let x=0;x<p;x++)for(let y=0;y<p;y++)for(let z=0;z<p;z++)if(mod(x*x-d*y*y+z*z,p)===1)brute.add([x,y,z].join(','));assert.deepEqual(seen,brute)}});
+test('generator visits full fiber and preserves image',()=>{for(const p of primes){const f=field(p),g=torusGenerator(p);assert.equal(new Set(g.orbit.map(v=>v.join(','))).size,p+1);for(const {w,point} of quadric(p)){const {orbit}=orderedFiber(p,w);assert.equal(new Set(orbit.map(v=>v.flat().join(','))).size,p+1);for(const z of orbit){assert.equal(mod(f.norm(z[0])+f.norm(z[1]),p),1);assert.deepEqual(finiteHopf(p,z),point)}}}});
+test('view transform preserves real Euclidean norm',()=>{let v=[1,2,3],w=project3(v,.7,-.4);assert.ok(Math.abs(w.reduce((s,x)=>s+x*x,0)-14)<1e-10)});
