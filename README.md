@@ -21,3 +21,6 @@ No build, dependencies, external scripts or tracking. Static files live in docs/
 
 ## Research standards
 Distinguish established mathematics, derived model results, and hypotheses. Do not claim experimental validation, verified novelty, or a derivation of particle masses from scalar eigenvalues. Report counterexamples and limitations in the ledger; contributions should include reproducible calculations.
+
+## Visualization controls
+The shared observatory experience includes laboratory navigation, active section highlighting, Hopf azimuth/latitude/categorical palettes, zoom, PNG capture, filtered spectral modes, keyboard-accessible mode selection, and SVG figure export. All scientific formulas remain in the model modules.
