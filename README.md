@@ -34,3 +34,6 @@ The shared observatory experience includes laboratory navigation, active section
 
 ## Geometry bridge
 The arithmetic page now includes a linked continuous-sphere / finite-quadric explorer, coordinate slices, an ordered norm-one orbit microscope, exact invariant checks, and shareable/exportable experiments. [Proof notebook 006](docs/research-006.md).
+
+## Matter atlas
+[Explore matter](https://svyable.github.io/hopf/matter.html): all 118 element symbols, exact valence-charge accounting, editable ion compositions, spin-½ Born probabilities and Hopf phase, analytic hydrogenic orbitals, and calculated vacuum wavelengths compared with NIST reference ionization energies. [Research 008](docs/research-008.md).

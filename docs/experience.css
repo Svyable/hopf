@@ -17,3 +17,5 @@ button,select{background:#17283b;border:1px solid #496077;color:var(--ink);borde
 .studio-card{--lab:#f0a3cd}.labcards{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:1100px){.labcards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.labcards{grid-template-columns:1fr}.labnav{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px}.labnav a{flex:none;white-space:nowrap}}
 
 .arithmetic-card{--lab:#c0e995}.labcards{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}.labnav a:nth-child(5) i{color:#c0e995}@media(max-width:760px){.labcards{grid-template-columns:1fr}.labnav{overflow-x:auto;flex-wrap:nowrap}}
+
+.matter-card{--lab:#ffbb8a}.labnav a:nth-child(6) i{color:#ffbb8a}.labnav{max-width:100%;overflow-x:auto}.labnav a{flex:none;white-space:nowrap}@media(min-width:761px){.labnav{flex-wrap:wrap}}
