@@ -26,3 +26,5 @@ The nonrelativistic infinite-mass model has E_n=−(hcR∞)Z²/n². Using CODATA
 - [NIST fundamental constants](https://physics.nist.gov/cuu/Constants/)
 
 No claim of novel physical laws or new experimental data is made.
+
+The H I Lyman series includes NIST handbook vacuum reference wavelengths for n=2 through 8. Lyman-alpha has two tabulated components (121.566824 and 121.567364 nm), whereas the simple model predicts one wavelength. Values are transcribed in nm from the handbook's Å column. The UI preserves both components rather than averaging away the fine structure. Ionization threshold residuals need not have the same sign: the infinite-mass model is above H and He references and below Li III.

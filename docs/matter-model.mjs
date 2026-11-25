@@ -3,9 +3,12 @@ export const elements='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti 
 export const presets=[{z:1,n:0,e:1,label:'Hydrogen-1'},{z:1,n:1,e:1,label:'Deuterium'},{z:2,n:2,e:1,label:'Helium-4 ion'},{z:6,n:6,e:6,label:'Carbon-12'},{z:8,n:8,e:8,label:'Oxygen-16'},{z:11,n:12,e:10,label:'Sodium-23 ion'},{z:17,n:18,e:18,label:'Chloride-35'},{z:26,n:30,e:26,label:'Iron-56'},{z:92,n:146,e:92,label:'Uranium-238'}];
 export function atom(z,n,e){if(!Number.isInteger(z)||z<1||z>118||![n,e].every(x=>Number.isInteger(x)&&x>=0&&x<=400))throw new RangeError('Invalid counts');const up=2*z+n,down=z+2*n;return {symbol:elements[z-1],z,n,e,a:z+n,q:z-e,up,down,nuclearThirds:2*up-down,totalThirds:2*up-down-3*e}}
 export const R=13.605693122990,HC=1239.841984332;
-export const references=[{z:1,ion:'H',energy:13.598434599702,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl? spectra=H'.replace(' ','')},{z:2,ion:'He+',energy:54.4177655282,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=He&units=1'},{z:3,ion:'Li2+',energy:122.45435913,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=Li&units=1'}];
+export const references=[{z:1,ion:'H',energy:13.598434599702,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=H&units=1'},{z:2,ion:'He+',energy:54.4177655282,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=He&units=1'},{z:3,ion:'Li2+',energy:122.45435913,source:'https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=Li&units=1'}];
 export function level(z,n){return -R*z*z/(n*n)}
 export function transition(z,upper,lower){if(!Number.isInteger(z)||z<1||!Number.isInteger(upper)||!Number.isInteger(lower)||lower<1||upper<=lower)throw new RangeError('Invalid transition');const energy=level(z,upper)-level(z,lower);return {energy,wavelength:HC/energy}}
 export function orbital(kind,x,y){const r=Math.hypot(x,y);if(kind==='1s')return Math.exp(-r)/Math.sqrt(Math.PI);if(kind==='2s')return (2-r)*Math.exp(-r/2)/(4*Math.sqrt(2*Math.PI));if(kind==='2p')return y*Math.exp(-r/2)/(4*Math.sqrt(2*Math.PI));throw new RangeError('Unknown orbital')}
 export function spin(theta,phi,axisTheta,axisPhi){const dot=Math.sin(theta)*Math.sin(axisTheta)*Math.cos(phi-axisPhi)+Math.cos(theta)*Math.cos(axisTheta);return Math.max(0,Math.min(1,(1+dot)/2))}
 export function shellStates(n){return Array.from({length:n},(_,l)=>({l,orbitals:2*l+1,spinStates:2*(2*l+1)}))}
+
+// NIST H I strong-line handbook, vacuum wavelengths converted Å to nm.
+export const lymanReference=[{upper:2,wavelength:121.566824},{upper:2,wavelength:121.567364},{upper:3,wavelength:102.57222},{upper:4,wavelength:97.25367},{upper:5,wavelength:94.97430},{upper:6,wavelength:93.78034},{upper:7,wavelength:93.07482},{upper:8,wavelength:92.62256}];
