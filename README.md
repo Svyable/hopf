@@ -52,3 +52,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Observer Universe
 [Research 013 laboratory](https://svyable.github.io/hopf/observer.html) · [Proof notebook](docs/research-013.md). Exact multiway rewriting DAG, hook-length counts, observation extensions and strong-lumpability certificates. Inspired by Wolfram and Bennett; independent finite toy model.
+
+## Rule Space Workbench
+[Research 014 workbench](https://svyable.github.io/hopf/workbench.html) · [Proof notebook](docs/research-014.md). Editable finite binary rewrite rules, exhaustive 4,096-mask atlas, exact observer partition refinement, graph spectra, held-out hypothesis comparison and importable/shareable notebooks.
