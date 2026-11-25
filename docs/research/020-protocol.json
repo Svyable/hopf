@@ -1,0 +1,12 @@
+{
+  "schema": "hopf-study-v1",
+  "id": "020",
+  "question": "Can character-resolved spectral moments locate and count the shortest nontrivial Z4 holonomy cycles, and which weaker diagnostics fail?",
+  "scope": "Connected finite simple graphs, fourth roots of unity, all chord flux assignments in fixed spanning-tree gauge. Not a physical experiment.",
+  "screen": ["ring4", "ring5", "theta", "complete4"],
+  "validation": ["ring8", "ladder3", "bipartite33", "cube", "tree"],
+  "primary": "First positive faithful-character moment deficit equals independently enumerated shortest nontrivial simple cycle length; reconstructed counts at that length agree by flux type.",
+  "controls": ["flat assignment", "vertex switching", "ordinary girth given nonflatness", "shortest nontrivial fundamental cycle", "nonfaithful character j=2"],
+  "success": "Zero primary mismatches across all assigned fluxes and exact agreement under switching. Report every mismatch, including baseline misses. No SOTA claim.",
+  "limitations": "The protocol is fixed in git before running this pilot, not independently blinded or externally preregistered; analytic reasoning already informs the predictions."
+}
