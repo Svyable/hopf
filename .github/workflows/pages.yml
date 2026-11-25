@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check docs/app.mjs && node --check docs/atlas.mjs && node --check docs/symmetry.mjs && node --check docs/experience.mjs && node --check docs/studio.mjs && node --check docs/arithmetic.mjs && node --check docs/bridge.mjs
+      - run: node --check docs/app.mjs && node --check docs/atlas.mjs && node --check docs/symmetry.mjs && node --check docs/experience.mjs && node --check docs/studio.mjs && node --check docs/arithmetic.mjs && node --check docs/bridge.mjs && node --check docs/fibration-model.mjs && node --check docs/fibration.mjs
       - run: node --test tests/*.test.mjs
       - run: npm install --no-save --no-package-lock playwright@1.56.1
       - run: npx playwright install --with-deps chromium
@@ -31,16 +31,33 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
     concurrency:
       group: pages
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # One artifact name per attempt: a re-run otherwise finds two "github-pages"
+      # artifacts in the same run and deploy-pages refuses to choose.
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
+          name: github-pages-${{ github.run_attempt }}
       - name: Deploy
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
+      # The first attempt sometimes fails transiently (artifact not yet visible, or
+      # "Deployment failed, try again later"); retry once before failing the run.
+      - name: Wait before retrying
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - name: Retry deploy
+        id: retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
