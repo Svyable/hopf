@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {heat,multiplicity,roundMultiplicity,tailBounds} from '../docs/heat-model.mjs';
+import {modes} from '../docs/model.mjs';
+const near=(a,b,tol=1e-9)=>assert.ok(Math.abs(a-b)<=tol*Math.max(1,Math.abs(b)),a+' != '+b);
+test('multiplicity agrees with independent low-degree scalar model and round sum',()=>{for(const r of modes(12,1,false))near(multiplicity(r.l,r.k),r.mult);for(let l=0;l<=25;l++){let sum=0;for(let k=-l;k<=l;k+=2)sum+=multiplicity(l,k);near(sum,roundMultiplicity(l))}});
+test('heat trace includes constant mode and limits distinguish nine and eight',()=>{const r=heat(1,.0001),b=heat(0,.0001),ir=heat(1,10);assert.ok(r.dimension>8.99&&r.dimension<9.01);assert.ok(b.dimension>7.99&&b.dimension<8.01);near(b.neutral,1);near(ir.z,1);assert.ok(ir.dimension<1e-30)});
+test('nonzero weights obey the exponential suppression bound',()=>{for(const s of [.001,.01,.05])for(const t of [.02,.1,.4,.9]){let r=heat(t,s),round=heat(1,s);assert.ok(r.z1<=Math.exp(-s*(1/t**2-1))*round.z1*(1+1e-12));near(r.weights.reduce((a,[,v])=>a+v,0),r.z)}});
+test('analytic tail bounds contain longer-cutoff calculations',()=>{for(const [t,s,L] of [[1,.02,35],[.1,.01,45],[0,.002,100],[.7,.1,15]]){let a=heat(t,s,{cutoff:L}),b=heat(t,s,{cutoff:L*3});assert.ok(Number.isFinite(a.tailZ));assert.ok(b.z-a.z<=a.tailZ+Math.abs(b.z)*1e-12);assert.ok(b.m-a.m<=a.tailM+Math.abs(b.m)*1e-12);assert.ok(b.dimension>=a.low-1e-12&&b.dimension<=a.high+1e-12)}assert.equal(tailBounds(.001,1).z,Infinity)});
+test('heat moment equals negative log-derivative and collapse approaches base',()=>{let s=.004,t=.03,h=1e-5,a=heat(t,s),b=heat(t,s*Math.exp(h)),c=heat(t,s*Math.exp(-h));near(a.dimension,-(Math.log(b.z)-Math.log(c.z))/h,1e-7);near(heat(.01,.01).dimension,heat(0,.01).dimension,1e-10);assert.ok(a.neutral>.9)});
