@@ -40,3 +40,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Dimension Observatory
 [Interactive heat-kernel and dimensional flow laboratory](https://svyable.github.io/hopf/heat.html) · [Research notebook 009](docs/research-009.md). Exact scalar heat trace, controlled truncation, noncommuting short-time/collapse limits, and phase-weight suppression.
+
+## Arithmetic of Resonance
+[Research 010 laboratory](https://svyable.github.io/hopf/resonance.html) · [Proof notebook](docs/research-010.md). Rational–irrational sector dichotomy, exact Gaussian prime shells, Landau–Ramanujan asymptotics and downloadable BigInt certificates.
