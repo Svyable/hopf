@@ -9,7 +9,7 @@ const signed=x=>(x>0?'+':x<0?'−':'')+Math.abs(x);
 
 // A small depth-sorted wireframe renderer for curves in R^3 with drag/keyboard rotation.
 class Scene{
- constructor(canvas,{clip=9,label,yaw=-.55,pitch=.42}={}){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.yaw=yaw;this.pitch=pitch;this.zoom=1;this.clip=clip;this.curves=[];this.dots=[];this.label=label;this.listen()}
+ constructor(canvas,{clip=9,label,yaw=-.55,pitch=.42,zoom=1}={}){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.yaw=yaw;this.pitch=pitch;this.zoom=zoom;this.clip=clip;this.curves=[];this.dots=[];this.label=label;this.listen()}
  listen(){const c=this.canvas;let drag=null;c.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY,this.yaw,this.pitch];c.setPointerCapture(e.pointerId)});c.addEventListener('pointermove',e=>{if(!drag)return;this.yaw=drag[2]+(e.clientX-drag[0])*.009;this.pitch=Math.max(-1.5,Math.min(1.5,drag[3]+(e.clientY-drag[1])*.009));this.draw()});const end=()=>drag=null;c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);c.addEventListener('keydown',e=>{const k={ArrowLeft:[-.12,0],ArrowRight:[.12,0],ArrowUp:[0,-.12],ArrowDown:[0,.12]}[e.key];if(k){e.preventDefault();this.yaw+=k[0];this.pitch=Math.max(-1.5,Math.min(1.5,this.pitch+k[1]));this.draw()}else if(e.key==='+'||e.key==='='){this.zoom=Math.min(3,this.zoom*1.12);this.draw()}else if(e.key==='-'){this.zoom=Math.max(.35,this.zoom/1.12);this.draw()}});new ResizeObserver(()=>this.draw()).observe(c)}
  set(curves,dots=[]){this.curves=curves;this.dots=dots;this.draw()}
  draw(){const c=this.canvas,dpr=Math.min(2,devicePixelRatio||1),w=c.clientWidth||600,h=c.clientHeight||420;if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr)}const g=this.ctx;g.setTransform(dpr,0,0,dpr,0,0);const bg=g.createRadialGradient(w/2,h*.45,10,w/2,h/2,Math.max(w,h)*.7);bg.addColorStop(0,'#1c3247');bg.addColorStop(1,'#081019');g.fillStyle=bg;g.fillRect(0,0,w,h);
@@ -67,7 +67,7 @@ const svgPick=$('pickSphere');let picking=false;svgPick.addEventListener('pointe
 setPins(families.link());$('fibTheta').value=110;$('fibPhi').value=200;updateFibers();
 
 /* ---------- 18 / Hopf invariant lab: F(z1,z2) = [z1^p : z2^q] ---------- */
-const pqScene=new Scene($('pqCanvas'),{label:'PREIMAGES OF TWO BASE POINTS · DRAG TO ROTATE',yaw:0,pitch:1.25});
+const pqScene=new Scene($('pqCanvas'),{label:'PREIMAGES OF TWO BASE POINTS · DRAG TO ROTATE',yaw:0,pitch:1.25,zoom:.8});
 const pqState=()=>({p:+$('pqP').value,q:+$('pqQ').value,n:+$('gaussN').value,t1:rad(+$('pqTheta').value)});
 const SECOND=[rad(118),rad(205)];
 let pqKey='',gaussKey='',gaussMemo=new Map();
