@@ -9,3 +9,5 @@ for(const panel of document.querySelectorAll('.panel')){const svgs=[...panel.que
 
 // Keep the newest cross-laboratory experiment discoverable across the site.
 const labnav=document.querySelector('.labnav');if(labnav&&!labnav.querySelector('a[href="./holonomy.html"]')){const a=document.createElement('a');a.href='./holonomy.html';a.textContent='Holonomy';labnav.append(a)}
+
+if(labnav&&!labnav.querySelector('a[href="./research.html"]')){const a=document.createElement('a');a.href='./research.html';a.textContent='Scientific method';labnav.append(a)}
