@@ -58,3 +58,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Invariant Observatory
 [Research 015 laboratory](https://svyable.github.io/hopf/invariants.html) · [Mathematical notebook](docs/research-015.md). Exact lazy Ollivier curvature, F2 persistence, Hodge heat supertraces, Fisher–Rao geodesics, convergent complex Hopf zeta and Euler product, and exact cospectral graph certificates. Import workbench notebooks to inspect the same finite world.
+
+## Structure / Randomness
+[Research 016](https://svyable.github.io/hopf/structure.html) · [Proof notebook](docs/research-016.md). Exact Walsh and Gowers norms, bent spectral counterexamples, quadratic inverse oracle, additive energy, editable signs, rewrite reachability imports and exhaustive 65,536-function atlas.

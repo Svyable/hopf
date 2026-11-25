@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {signal,norms,cube,additive,inverse,bentPair,scan,rewriteSignal,fwht} from '../docs/structure-model.mjs';
+const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10,a+' != '+b);
+test('exact cube average agrees with Walsh algorithm on all three-bit sign tables',()=>{for(let mask=0;mask<256;mask++){const f=Array.from({length:8},(_,i)=>mask&(1<<i)?-1:1),m=norms(f);let total=0;for(let x=0;x<8;x++)for(let a=0;a<8;a++)for(let b=0;b<8;b++)for(let c=0;c<8;c++)total+=cube(f,x,[a,b,c]).product;near(Number(m.u3num)/Number(m.u3den),total/4096);assert.ok(m.u3+1e-10>=m.u2)}});
+test('quadratic phase flat spectrum and U3 one, cubic less than one',()=>{for(const n of [2,4,6,8]){const m=norms(signal(n,'quadratic'));assert.ok(m.w.every(w=>Math.abs(w)===2**(n/2)));near(m.u2,2**(-n/4));near(m.u3,1)}assert.ok(norms(signal(3,'cubic')).u3<1)});
+test('bent pair same power and different cube uniformity',()=>{let p=bentPair();assert.deepEqual(p.A.w.map(Math.abs),p.B.w.map(Math.abs));near(p.A.u3,1);assert.ok(p.B.u3<1)});
+test('inverse witness recovers quadratics and best affine agrees with Walsh',()=>{for(const n of [2,3,4,5]){let f=signal(n,'quadratic'),v=inverse(f);near(v.correlation,1);near(v.linearCorrelation,norms(f).maxFourier);assert.equal(v.count,2**(n+n*(n-1)/2))}const f=signal(5,'random',19),v=inverse(f);near(v.linearCorrelation,norms(f).maxFourier);assert.ok(v.correlation>=v.linearCorrelation);assert.equal(inverse(signal(6,'quadratic')),null)});
+test('additive energy, affine rank and rewrite membership',()=>{let a=additive([0,1,2,3],8);assert.equal(a.energy,64);assert.equal(a.affineDimension,2);assert.equal(a.doubling,1);let f=rewriteSignal('000111','01 -> 10'),b=additive(f.map((v,i)=>v===1?i:-1).filter(i=>i>=0),64);assert.equal(b.set.length,20);assert.ok(b.energy>=b.lowerBound);assert.equal(b.counts.reduce((a,b)=>a+b),400)});
+test('complete four-bit atlas count and bent extremum',()=>{const a=scan();assert.equal(a.reduce((s,r)=>s+r.count,0),65536);assert.equal(a[0].u2num,'4096');assert.equal(a[0].count,896);assert.equal(a.at(-1).count,32)});
