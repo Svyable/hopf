@@ -19,3 +19,5 @@ The notebook exports configuration plus graph, classifications, observer partiti
 - Chung, Spectral Graph Theory, AMS 1997.
 - [Research 013](research-013.md).
 No priority or empirical physics claim.
+
+The optional benchmark draws 48 target masks uniformly with replacement and seeded split seeds; the plotted comparison reports held-out error for each, with ties. It is a distribution over this chosen task generator, not a universal ranking of priors.
