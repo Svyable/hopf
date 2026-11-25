@@ -66,3 +66,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 [Research 017](https://svyable.github.io/hopf/conjectures.html) · [protocol](docs/research-017.md). Editable finite logical predicates, exhaustive counterexamples, replayable certificates and GitHub contribution workflow.
 
 [Research 018](https://svyable.github.io/hopf/spacetime.html) · [equations](docs/research-018.md). Lorentz geometry, regular horizon coordinates, numerical Schwarzschild photon trajectories, circular orbits, Hawking thermodynamics and FLRW distances. Explicit finite and semiclassical limits.
+
+## Scientific Method Observatory
+[Research 020](https://svyable.github.io/hopf/research.html) · [scientific workflow](docs/SCIENTIFIC-METHOD.md) · [proof and critique](docs/research-020.md). ScientistTwo-inspired staged research and integrity checks; fixed Z4 holonomy benchmark, baseline misses and independently reproducible evidence.

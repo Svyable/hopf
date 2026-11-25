@@ -1,0 +1,445 @@
+{
+  "schema": "hopf-study-results-v1",
+  "id": "020",
+  "screen": [
+    {
+      "name": "ring4",
+      "vertices": 4,
+      "edges": 4,
+      "rank": 1,
+      "cases": 4,
+      "nonflat": 3,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 1,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 4,
+          "girth": 4,
+          "basis": 4,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "ring5",
+      "vertices": 5,
+      "edges": 5,
+      "rank": 1,
+      "cases": 4,
+      "nonflat": 3,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 1,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 5,
+          "girth": 5,
+          "basis": 5,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "theta",
+      "vertices": 5,
+      "edges": 6,
+      "rank": 2,
+      "cases": 16,
+      "nonflat": 15,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 3,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 4,
+          "girth": 4,
+          "basis": 4,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            2,
+            1,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "complete4",
+      "vertices": 4,
+      "edges": 6,
+      "rank": 3,
+      "cases": 64,
+      "nonflat": 63,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 7,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 3,
+          "girth": 3,
+          "basis": 3,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            2
+          ]
+        }
+      }
+    }
+  ],
+  "validation": [
+    {
+      "name": "ring8",
+      "vertices": 8,
+      "edges": 8,
+      "rank": 1,
+      "cases": 4,
+      "nonflat": 3,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 1,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 8,
+          "girth": 8,
+          "basis": 8,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "name": "ladder3",
+      "vertices": 6,
+      "edges": 7,
+      "rank": 2,
+      "cases": 16,
+      "nonflat": 15,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 3,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 4,
+          "girth": 4,
+          "basis": 4,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            4,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "bipartite33",
+      "vertices": 6,
+      "edges": 9,
+      "rank": 4,
+      "cases": 256,
+      "nonflat": 255,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 15,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 4,
+          "girth": 4,
+          "basis": 4,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            3,
+            1,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "cube",
+      "vertices": 8,
+      "edges": 12,
+      "rank": 5,
+      "cases": 1024,
+      "nonflat": 1023,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 3,
+      "characterMiss": 31,
+      "witnesses": {
+        "characterMiss": {
+          "mask": 2,
+          "expected": 4,
+          "girth": 4,
+          "basis": 4,
+          "nonfaithful": null,
+          "cycle": [
+            0,
+            1,
+            4,
+            2
+          ]
+        },
+        "basisMiss": {
+          "mask": 256,
+          "expected": 4,
+          "girth": 4,
+          "basis": 6,
+          "nonfaithful": 4,
+          "cycle": [
+            2,
+            4,
+            7,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "tree",
+      "vertices": 7,
+      "edges": 6,
+      "rank": 0,
+      "cases": 1,
+      "nonflat": 0,
+      "primaryMiss": 0,
+      "switchMiss": 0,
+      "girthMiss": 0,
+      "basisMiss": 0,
+      "characterMiss": 0,
+      "witnesses": {}
+    }
+  ],
+  "exploratory": {
+    "scope": "Post-benchmark triangle joined by bridge to square; not part of fixed validation.",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "mask": 4,
+    "analysis": {
+      "mask": 4,
+      "a": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "m": [
+        {
+          "k": 0,
+          "counts": [
+            7,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        },
+        {
+          "k": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        },
+        {
+          "k": 2,
+          "counts": [
+            16,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        },
+        {
+          "k": 3,
+          "counts": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        },
+        {
+          "k": 4,
+          "counts": [
+            60,
+            4,
+            0,
+            4
+          ],
+          "D1": 8,
+          "D2": 16
+        },
+        {
+          "k": 5,
+          "counts": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        },
+        {
+          "k": 6,
+          "counts": [
+            268,
+            30,
+            0,
+            30
+          ],
+          "D1": 60,
+          "D2": 120
+        },
+        {
+          "k": 7,
+          "counts": [
+            238,
+            0,
+            0,
+            0
+          ],
+          "D1": 0,
+          "D2": 0
+        }
+      ],
+      "truth": {
+        "length": 4,
+        "odd": 1,
+        "half": 0,
+        "witness": {
+          "path": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "steps": [
+            [
+              4,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              5,
+              -1
+            ]
+          ],
+          "length": 4,
+          "flux": 1
+        }
+      },
+      "length": 4,
+      "odd": 1,
+      "half": 0,
+      "nonfaithful": 4,
+      "girth": 3,
+      "basis": 4,
+      "pass": true,
+      "switchPass": true
+    }
+  }
+}
