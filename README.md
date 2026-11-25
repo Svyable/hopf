@@ -12,6 +12,7 @@ An interactive research playground for the complex Hopf fibration and possible g
 
 - [Fiber studio](https://svyable.github.io/hopf/studio.html)
 - [Research notebook 004](docs/research-004.md)
+- [Research notebook 007: linked fibers, Villarceau tori, Hopf invariant](docs/research-007.md)
 
 - [Arithmetic observatory](https://svyable.github.io/hopf/arithmetic.html)
 - [Research notebook 005](docs/research-005.md)
