@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {universe,hook,choose,rank,successors,quotient,extensions} from '../docs/observer-model.mjs';
+test('exhaustive DAG and hook formula agree for all grid sizes',()=>{for(let m=1;m<=6;m++)for(let n=1;n<=6;n++){const u=universe(m,n);assert.equal(BigInt(u.nodes.size),choose(m+n,m));assert.equal(u.paths,hook(m,n));assert.equal(u.nodes.get(u.start).future,u.paths);assert.equal(u.layers.at(-1).length,1);for(const layer of u.layers){assert.equal(layer.reduce((s,v)=>s+v.paths*v.future,0n),u.paths);for(const v of layer)for(const w of v.next)assert.equal(rank(w),v.r+1)}}});
+test('rank and identity exact quotients; prefix yields checkable failure',()=>{const u=universe(4,4);assert.ok(quotient(u,'rank').valid);assert.ok(quotient(u,'identity').valid);const q=quotient(u,'prefix'),w=q.witness;assert.ok(w);assert.equal(w.a.slice(0,2),w.b.slice(0,2));assert.notEqual(w.aNum*w.bDen,w.bNum*w.aDen);assert.equal(extensions(u,w.a,'prefix').length,q.blocks.get(w.block).length)});
+test('small explicit histories',()=>{assert.equal(hook(2,2),2n);assert.equal(hook(3,3),42n);assert.equal(hook(4,4),24024n);assert.deepEqual(successors('0101'),['1001','0110'])});

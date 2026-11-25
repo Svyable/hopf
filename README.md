@@ -49,3 +49,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Temporal Information Observatory
 [Research 012 laboratory](https://svyable.github.io/hopf/temporal.html) · [Proofs and proposed protocol](docs/research-012.md). Adversarial synthetic presentiment benchmark: causal versus centered filters, known versus wrong target probabilities, anytime-valid evidence mixtures, exact finite null enumeration and information-theoretic bounds. No real anticipatory physiology or retrocausality claim.
+
+## Observer Universe
+[Research 013 laboratory](https://svyable.github.io/hopf/observer.html) · [Proof notebook](docs/research-013.md). Exact multiway rewriting DAG, hook-length counts, observation extensions and strong-lumpability certificates. Inspired by Wolfram and Bennett; independent finite toy model.
