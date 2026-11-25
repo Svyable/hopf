@@ -1,0 +1,23 @@
+{
+  "schema": "hopf-study-v1",
+  "id": "021",
+  "question": "Can a lifted shortest-path algorithm independently recover first nontrivial holonomy, and when do girth and the first faithful moment alone lose information?",
+  "scope": "All connected labeled simple graphs on 2–4 vertices, plus four fixed cactus graphs. All Z4 spanning-tree gauge assignments.",
+  "screen": [
+    "all-connected-labeled-2-4"
+  ],
+  "validation": [
+    "triangle-square-bridge",
+    "triangle-pentagon-vertex",
+    "triangle-square-pentagon-chain",
+    "two-triangles-vertex"
+  ],
+  "primary": "Lifted BFS, walk moments and simple-cycle DFS agree on shortest nontrivial loop; moment inversion recovers all four closed-walk flux counts at every computed length.",
+  "controls": [
+    "ordinary girth given nonflatness",
+    "first nonzero faithful deficit alone",
+    "nonfaithful character"
+  ],
+  "success": "Zero primary mismatches; report all control misses and collision witnesses, including no collision where applicable.",
+  "limitations": "Fixed protocol committed before evaluation; not externally preregistered or blinded. Cactus families deliberately selected following study 020. No novelty or speed superiority claim."
+}

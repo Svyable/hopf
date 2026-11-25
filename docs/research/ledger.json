@@ -1,0 +1,76 @@
+{
+  "schema": "hopf-claim-ledger-v1",
+  "studies": [
+    {
+      "id": "020",
+      "protocol": "research/020-protocol.json",
+      "results": "research/020-results.json",
+      "proof": "research-020.md",
+      "replay": "tests/research-method.test.mjs",
+      "review": "same-author",
+      "novelty": "unestablished",
+      "claims": [
+        {
+          "id": "020-A",
+          "status": "derived",
+          "statement": "Two Z4 characters recover the composition of shortest nontrivial holonomy cycles.",
+          "evidence": "Analytic closed-walk decomposition; exact fixed benchmark.",
+          "limitation": "Gain-graph literature priority unresolved."
+        },
+        {
+          "id": "020-B",
+          "status": "finite-verified",
+          "statement": "1,389 assignments agree with independent cycle enumeration.",
+          "evidence": "Fixed screen and validation result JSON.",
+          "limitation": "Nine small graph families; girth baseline also succeeds."
+        }
+      ]
+    },
+    {
+      "id": "021",
+      "protocol": "research/021-protocol.json",
+      "results": "research/021-results.json",
+      "proof": "research-021.md",
+      "replay": "tests/research-followup.test.mjs",
+      "review": "same-author",
+      "novelty": "unestablished",
+      "claims": [
+        {
+          "id": "021-A",
+          "status": "derived",
+          "statement": "Shortest nontrivial loop length equals shortest path from a vertex to a different sheet of its Z4 lift, minimized over vertices.",
+          "evidence": "Closed-walk decomposition and graph-cover construction.",
+          "limitation": "Finite simple graphs, discrete phases; not a physical theory."
+        },
+        {
+          "id": "021-B",
+          "status": "finite-verified",
+          "statement": "All 356 assignments pass three independent calculations and exact trace inversion.",
+          "evidence": "43 connected labeled graphs and four fixed cactus graphs.",
+          "limitation": "Small fixed domains; not a performance or novelty claim."
+        },
+        {
+          "id": "021-C",
+          "status": "refuted",
+          "statement": "Ordinary girth determines the shortest nontrivial holonomy loop given nonflatness.",
+          "evidence": "21 counterexamples in the follow-up; triangle-square bridge witness.",
+          "limitation": "Refutes the universal assertion, not usefulness on particular families."
+        },
+        {
+          "id": "021-D",
+          "status": "refuted",
+          "statement": "First faithful deficit and its order determine both shortest-cycle flux counts.",
+          "evidence": "440 unordered within-graph collision pairs; two-triangle witness.",
+          "limitation": "Only the first scalar deficit, not entire faithful spectrum, is refuted."
+        },
+        {
+          "id": "021-E",
+          "status": "empirical-untested",
+          "statement": "Discrete loop holonomy may model physically measurable distributed information.",
+          "evidence": "Mathematical analogy only.",
+          "limitation": "No physiological or physical measurements."
+        }
+      ]
+    }
+  ]
+}

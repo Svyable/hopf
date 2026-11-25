@@ -1,0 +1,16 @@
+# Research 021 — Adversarial validation and lifted observability
+## Frozen question
+Follow study 020's weakness: ordinary girth passed its fixed benchmark. [Protocol](research/021-protocol.json) committed as fa1c55ae64bc3bb2c04e680141352829eb63eff7 before evaluation. This is a deliberately adversarial follow-up, not a blind holdout or external preregistration.
+## Three calculations
+For a Z4 connection, construct the four-sheet graph with vertices (v,h), and edges (u,h)→(v,h+a_uv). A walk from (v,0) to (v,h≠0) projects to a closed walk of nonzero flux, and every such walk lifts uniquely. Minimize unweighted shortest-path length over all starting vertices and nonzero terminal sheets. By splitting a closed walk into simple cycles and backtracks, a nonzero-flux walk contains a nonzero-flux simple cycle of no greater length. Conversely that simple cycle lifts to an admissible path. Thus BFS in the lifted graph recovers exactly the same length as the first faithful spectral deficit and DFS cycle enumeration. It is a combinatorial alternative, not a claim that spectra outperform BFS.
+For each order k, calculate exact Gaussian-integer adjacency matrix powers for characters 0,1,2 separately from the walk-state DP. Let T=Tr(A_0^k), D_j=T−Tr(A_j^k). Reversal makes N_1=N_3. Invert:
+N_1=N_3=D_2/4; N_2=(D_1−D_2/2)/2; N_0=T−2N_1−N_2.
+This reconstructs rooted directed closed-walk counts by flux at every computed length, not counts of simple cycles at arbitrary length. All counts checked against DP; safe-integer guards protect the fixed small domains.
+## Results
+Screen: all 43 connected labeled simple graphs on 2–4 vertices, 244 gauge assignments. Validation: four fixed cactus graphs, 112 assignments. Zero primary mismatches in both. Ordinary girth misses 0+21; nonfaithful onset misses 41+34; 432+8 unordered within-graph pairs have identical first faithful deficit order and value but differing shortest-cycle composition. Collision pairs are not independent trials or distinct graph counts. Full [results](research/021-results.json) record every graph and first witness in each category; every assignment can be reconstructed.
+## Explicit obstruction
+Two triangles sharing a vertex: a half-turn in one triangle and zero in the other yields g=3, D1=12, D2=0. Two odd quarter-turns yield g=3, D1=12, D2=24. The first faithful scalar cannot distinguish these, but the second character can. This is not a counterexample to identifiability from the entire faithful spectrum. Triangle-square bridge with only the square twisted gives ordinary girth 3 and actual holonomy length 4.
+## Review and limitations
+Same-author critique, no independent referee. BFS is simpler if the entire labeled graph is available; spectral diagnostics are useful under a different observation model. The benchmark verifies the identities, not speed superiority or universal physics. Cactus choices were motivated by known weaknesses. The elementary inversion is finite Fourier analysis; no literature novelty claim. [Signed-graph precedent](https://doi.org/10.1515/spma-2023-0104); [ScientistTwo](https://scientist-two.github.io/); [study 020](research-020.md).
+## Replay
+node --test tests/research-followup.test.mjs tests/research-ledger.test.mjs

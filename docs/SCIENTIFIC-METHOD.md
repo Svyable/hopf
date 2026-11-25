@@ -11,3 +11,6 @@ Adapted from [ScientistTwo](https://scientist-two.github.io/) ([preprint](https:
 8. **Feedback:** use GitHub issues for challenges and follow-ups. Do not manufacture reviewer ratings or papers. Re-run after changes.
 
 Pilot 020: Z4 holonomy moment diagnostics. Predeclared scope is in docs/research/020-protocol.json. No external review or continuous autonomous operation is implied.
+
+## Repository integration
+Versioned study dossiers (020 onward) must register protocol, results, proof, replay test and claim statuses in `docs/research/ledger.json`. `tests/research-ledger.test.mjs` checks completeness, unique IDs, artifact paths and basic schema; study-specific tests replay results. This is structural and computational verification, not a novelty or peer-review gate. Use the Research proposal issue form for new work. Earlier notebooks remain legacy studies, not retrospectively claimed as preregistered.
