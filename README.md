@@ -69,3 +69,5 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Scientific Method Observatory
 [Research 020](https://svyable.github.io/hopf/research.html) · [scientific workflow](docs/SCIENTIFIC-METHOD.md) · [proof and critique](docs/research-020.md). ScientistTwo-inspired staged research and integrity checks; fixed Z4 holonomy benchmark, baseline misses and independently reproducible evidence.
+
+Research 021: [adversarial follow-up](docs/research-021.md) · [claim ledger](docs/research/ledger.json) · [interactive evidence dashboard](https://svyable.github.io/hopf/research.html#followup). All versioned studies from 020 onward require registered protocol, results, proof and replay test. CI checks completeness and recomputes benchmarks.

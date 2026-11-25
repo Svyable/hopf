@@ -1,0 +1,30 @@
+name: Research proposal
+description: Propose a bounded falsifiable mathematical or physical research question.
+title: "[Research]: "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and scope
+      description: State the exact unresolved question, domain and assumptions.
+    validations:
+      required: true
+  - type: textarea
+    id: prior
+    attributes:
+      label: Prior art and alternative
+      description: Give verified sources and a competing explanation.
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Protocol and falsification
+      description: Specify benchmark, baselines, stopping, exclusions, independent checks and failure criteria.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence, limitations and reproduction
+      description: Include proof obligations, negative results, commands and artifact links. Distinguish peer review from automated checks.
