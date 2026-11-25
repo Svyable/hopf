@@ -61,3 +61,8 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Structure / Randomness
 [Research 016](https://svyable.github.io/hopf/structure.html) · [Proof notebook](docs/research-016.md). Exact Walsh and Gowers norms, bent spectral counterexamples, quadratic inverse oracle, additive energy, editable signs, rewrite reachability imports and exhaustive 65,536-function atlas.
+
+## Conjecture Commons & Spacetime Observatory
+[Research 017](https://svyable.github.io/hopf/conjectures.html) · [protocol](docs/research-017.md). Editable finite logical predicates, exhaustive counterexamples, replayable certificates and GitHub contribution workflow.
+
+[Research 018](https://svyable.github.io/hopf/spacetime.html) · [equations](docs/research-018.md). Lorentz geometry, regular horizon coordinates, numerical Schwarzschild photon trajectories, circular orbits, Hawking thermodynamics and FLRW distances. Explicit finite and semiclassical limits.
