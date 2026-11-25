@@ -26,3 +26,6 @@ Flat matter-plus-Lambda E(z)=sqrt(Ωm(1+z)^3+ΩΛ). H(z)=H0 E(z). D_C=(c/H0)∫ 
 - [Wald, Thermodynamics of Black Holes (2001)](https://doi.org/10.12942/lrr-2001-6)
 - [Hogg, Distance measures in cosmology](https://arxiv.org/abs/astro-ph/9905116)
 - [Carroll, Lecture Notes on General Relativity](https://arxiv.org/abs/gr-qc/9712019)
+
+## Information paradox: Page benchmark
+For a Haar-random pure state on C^a⊗C^b let m=min(a,b), n=max(a,b). The exact mean entropy (in nats) of either reduced subsystem is H_(mn)−H_n−(m−1)/(2n); mean purity is (a+b)/(ab+1). Use a=2^k, b=2^(N−k), N≤20, compare to entropy k bits of independently maximally mixed emitted qubits. The model is symmetric about the middle, with zero endpoint entropies; it demonstrates pure-state entanglement bookkeeping, not the unitary dynamics of a real black hole or the gravitational island formula. [Page, Average Entropy of a Subsystem (1993)](https://doi.org/10.1103/PhysRevLett.71.1291).
