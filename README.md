@@ -37,3 +37,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Matter atlas
 [Explore matter](https://svyable.github.io/hopf/matter.html): all 118 element symbols, exact valence-charge accounting, editable ion compositions, spin-½ Born probabilities and Hopf phase, analytic hydrogenic orbitals, and calculated vacuum wavelengths compared with NIST reference ionization energies. [Research 008](docs/research-008.md).
+
+## Dimension Observatory
+[Interactive heat-kernel and dimensional flow laboratory](https://svyable.github.io/hopf/heat.html) · [Research notebook 009](docs/research-009.md). Exact scalar heat trace, controlled truncation, noncommuting short-time/collapse limits, and phase-weight suppression.
