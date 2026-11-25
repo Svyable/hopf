@@ -46,3 +46,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Coherence Observatory
 [Research 011 laboratory](https://svyable.github.io/hopf/coherence.html) · [Proofs, sources and experimental protocol](docs/research-011.md). Synthetic Kuramoto and common-drive controls, exact projective phase geometry, Markov lumpability and a blinded morphic-resonance-inspired hypothesis simulator. No empirical EEG analysis or claim of nonlocal consciousness.
+
+## Temporal Information Observatory
+[Research 012 laboratory](https://svyable.github.io/hopf/temporal.html) · [Proofs and proposed protocol](docs/research-012.md). Adversarial synthetic presentiment benchmark: causal versus centered filters, known versus wrong target probabilities, anytime-valid evidence mixtures, exact finite null enumeration and information-theoretic bounds. No real anticipatory physiology or retrocausality claim.
