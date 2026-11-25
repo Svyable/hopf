@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {rationalShell,verifyShell,primeShell,scan,shellAt,predictedAverage} from '../docs/resonance-model.mjs';
+test('rational certificates for positive, zero and negative parameters',()=>{for(let B=1;B<=9;B++)for(let A=1-B;A<=9;A++){const s=rationalShell(A,B,12);assert.ok(verifyShell(s));assert.equal(s.rows.length,12);assert.equal(new Set(s.rows.map(r=>r.k.toString())).size,12)}assert.throws(()=>rationalShell(-1,1,3),RangeError)});
+test('certificate verifier rejects corrupted or repeated sectors',()=>{const s=rationalShell(2,3,5);assert.ok(!verifyShell({...s,energy:s.energy+1n}));assert.ok(!verifyShell({...s,rows:[s.rows[0],s.rows[0]]}));assert.ok(!verifyShell({...s,rows:[{...s.rows[0],k:s.rows[0].k+1n}]}))});
+test('Gaussian prime shells attain exact exponential sector count',()=>{for(let r=1;r<=12;r++){let s=primeShell(r);assert.equal(s.rows.length,2**(r-1));assert.ok(verifyShell(s));if(r<=4)assert.equal(shellAt(Number(s.energy+16n)).length,s.rows.length)}});
+test('complete bounded enumeration agrees with independent shell extraction',()=>{const s=scan(10000);let total=0,distinct=0;for(let n=16;n<=10000;n++){const count=shellAt(n).length;assert.equal(s.counts[n],count);total+=count;distinct+=count>0?1:0}assert.equal(total,s.sectors);assert.equal(distinct,s.distinct);for(let i=1;i<s.records.length;i++)assert.ok(s.records[i].count>s.records[i-1].count)});
+test('large scan lattice asymptotic and positive leading prediction',()=>{const N=4000000,s=scan(N);assert.ok(Math.abs(s.sectors-Math.PI*N/16)<3*Math.sqrt(N));assert.ok(predictedAverage(N)>1);assert.ok(s.records.at(-1).count>10);assert.ok(s.distinct<s.sectors)});
