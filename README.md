@@ -55,3 +55,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Rule Space Workbench
 [Research 014 workbench](https://svyable.github.io/hopf/workbench.html) · [Proof notebook](docs/research-014.md). Editable finite binary rewrite rules, exhaustive 4,096-mask atlas, exact observer partition refinement, graph spectra, held-out hypothesis comparison and importable/shareable notebooks.
+
+## Invariant Observatory
+[Research 015 laboratory](https://svyable.github.io/hopf/invariants.html) · [Mathematical notebook](docs/research-015.md). Exact lazy Ollivier curvature, F2 persistence, Hodge heat supertraces, Fisher–Rao geodesics, convergent complex Hopf zeta and Euler product, and exact cospectral graph certificates. Import workbench notebooks to inspect the same finite world.
