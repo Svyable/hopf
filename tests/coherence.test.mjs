@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {rng,order,nullMoments,simulate,plv,agent,pairedP,trial,calibration} from '../docs/coherence-model.mjs';
+const near=(a,b,e=1e-10)=>assert.ok(Math.abs(a-b)<e,a+' != '+b);
+test('projective order invariant under global phase, null moments match Monte Carlo',()=>{const a=[.2,.7,2.1,4.1];near(order(a).F,order(a.map(x=>x+1.7)).F);const n=8,r=rng(123),values=Array.from({length:30000},()=>order(Array.from({length:n},()=>r()*2*Math.PI)).F),m=values.reduce((s,x)=>s+x,0)/values.length,v=values.reduce((s,x)=>s+(x-m)**2,0)/values.length;near(m,nullMoments(n).mean,.004);near(v,nullMoments(n).variance,.001)});
+test('shared input alone produces synthetic coherence; deterministic replay',()=>{const opts={n:48,seed:42,D:.3},a=simulate(opts),b=simulate({...opts,H:5});assert.ok(b.mean>a.mean+.3);assert.deepEqual(b,simulate({...opts,H:5}));near(plv([0,1,2],[.4,1.4,2.4]),1)});
+test('agent matrix stochastic and uniform stationary; lumpability equivalence',()=>{for(const [p0,p1] of [[.08,.55],[.3,.3],[0,.8]]){const a=agent(p0,p1);for(let i=0;i<4;i++){near(a.matrix[i].reduce((s,x)=>s+x,0),1);near(a.matrix.reduce((s,row)=>s+row[i],0),1);assert.ok(a.matrix[i].every(v=>v>=0))}assert.equal(a.defect===0,p0===p1);assert.equal(a.information<1e-12,p0===p1)}});
+test('exact paired p values and null calibration',()=>{near(pairedP(0,0),1);near(pairedP(5,0),.0625);near(pairedP(0,6),.03125);near(pairedP(2,2),1);let a=calibration({reps:1000,n:120,seed:42}),b=calibration({reps:1000,n:120,beta:1.5,seed:42});assert.ok(a.fraction<.075);assert.ok(b.fraction>a.fraction+.4);assert.ok(Math.abs(a.mean)<.01);assert.deepEqual(trial({seed:12}),trial({seed:12}))});

@@ -43,3 +43,6 @@ The arithmetic page now includes a linked continuous-sphere / finite-quadric exp
 
 ## Arithmetic of Resonance
 [Research 010 laboratory](https://svyable.github.io/hopf/resonance.html) · [Proof notebook](docs/research-010.md). Rational–irrational sector dichotomy, exact Gaussian prime shells, Landau–Ramanujan asymptotics and downloadable BigInt certificates.
+
+## Coherence Observatory
+[Research 011 laboratory](https://svyable.github.io/hopf/coherence.html) · [Proofs, sources and experimental protocol](docs/research-011.md). Synthetic Kuramoto and common-drive controls, exact projective phase geometry, Markov lumpability and a blinded morphic-resonance-inspired hypothesis simulator. No empirical EEG analysis or claim of nonlocal consciousness.
